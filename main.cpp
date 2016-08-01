@@ -1541,7 +1541,7 @@ int main(int argc, char** argv) {
             variant.position = referenceIntervalStart + 1 + variantOffset;
             variant.id = idStream.str();
             
-            if(knownAltBases >= altBases / 2) {
+            if(knownAltBases > 0 && knownAltBases >= altBases / 2) {
                 // Flag the variant as reference. Don't put in a false entry if
                 // it isn't, because vcflib will spit out the flag anyway...
                 variant.infoFlags["XREF"] = true;
